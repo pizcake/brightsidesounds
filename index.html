@@ -439,14 +439,18 @@ input[type=range]:focus-visible{outline:2px solid var(--sage);outline-offset:4px
     evening: ["Golden Hour", "Lamp On", "Amber Window", "Slow Supper", "Last Light", "Warm Socks", "Candle Wax", "Porch Swing", "Dusk Chorus", "Blanket Fort",
               "Low Sun", "Book and Lamp", "Night Garden", "Firefly", "Fading Pink", "Long Shadows", "Home Again", "Stove Top", "Starlight Soon", "Goodnight Hills"]
   };
-
+  var MUSIC = {
+  1: "music/A.mp3",
+  42: "music/B.mp3"
+  };
   var SAMPLE_LEN = 30;
   var colById = {};
   COLLECTIONS.forEach(function (c) { colById[c.id] = c; });
   var TRACKS = [];
   COLLECTIONS.forEach(function (c) {
     TITLES[c.id].forEach(function (title) {
-      TRACKS.push({ n: TRACKS.length + 1, title: title, c: c.id, src: "" });
+      var n = TRACKS.length + 1;
+TRACKS.push({ n: n, title: title, c: c.id, src: MUSIC[n] || "" });
     });
   });
 
